@@ -1,0 +1,29 @@
+# Odoo
+*.pyc
+*.pyo
+*~
+__pycache__/
+.cache/
+.DS_Store
+
+# Docker and Databases
+docker-compose.yml
+config/
+*.sql
+*.backup
+*.dump
+.pg_data/
+.odoo_data/
+filestore/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Scripts and temporary files
+scratch/
+test_*.py

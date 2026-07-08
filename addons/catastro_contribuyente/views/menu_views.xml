@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Renombrar el Menú Principal de Contactos -->
+    <record id="contacts.menu_contacts" model="ir.ui.menu">
+        <field name="name">Contribuyentes</field>
+    </record>
+
+    <!-- Renombrar la Acción y forzar que solo muestre y cree contribuyentes -->
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="name">Contribuyentes</field>
+        <field name="context">{'default_is_contribuyente': True}</field>
+        <!-- Si deseas ocultar cualquier contacto que no sea contribuyente, descomenta la siguiente línea -->
+        <field name="domain">[('is_contribuyente', '=', True)]</field>
+    </record>
+</odoo>

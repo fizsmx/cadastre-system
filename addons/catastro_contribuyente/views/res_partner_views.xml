@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_contribuyente" model="ir.ui.view">
+        <field name="name">res.partner.form.contribuyente</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Pestaña principal para Contribuyente -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Datos Catastrales" invisible="not is_contribuyente">
+                    <group>
+                        <group string="Identificación">
+                            <field name="con_pmc" string="PMC" readonly="1" force_save="1"/>
+                            <field name="pmc_ant"/>
+                            <field name="con_tipo"/>
+                            <field name="con_nit"/>
+                            <field name="doc_tipo"/>
+                            <field name="doc_num"/>
+                            <field name="doc_exp"/>
+                            <field name="con_fech_ini"/>
+                            <field name="con_fecnac"/>
+                        </group>
+                        <group string="Nombres" invisible="con_tipo == 'EMP'">
+                            <field name="con_pat"/>
+                            <field name="con_mat"/>
+                            <field name="con_nom1"/>
+                            <field name="con_nom2"/>
+                            <field name="con_cas"/>
+                        </group>
+                        <group string="Empresa" invisible="con_tipo == 'PER'">
+                            <field name="con_raz"/>
+                            <field name="con_pat" string="Apellido Representante Legal"/>
+                        </group>
+                    </group>
+                    <group string="Ubicación Domiciliaria">
+                        <group>
+                            <field name="dom_dpto"/>
+                            <field name="dom_ciu"/>
+                            <field name="dom_bar"/>
+                        </group>
+                        <group>
+                            <field name="dom_tipo"/>
+                            <field name="dom_nom"/>
+                            <field name="dom_num"/>
+                            <field name="dom_edif"/>
+                            <field name="dom_bloq"/>
+                            <field name="dom_piso"/>
+                            <field name="dom_apto"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_contribuyente"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
